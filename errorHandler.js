@@ -1,18 +1,18 @@
 
-function getNotFoundResponse(res) {
-    return res.status(404).json({ message: 'User(s) Not found' });
+function getNotFoundResponse(res,message) {
+    return res.status(404).json({ Message: message});
 }
 
-function getInternalServerError(res,err) {
+function getInternalServerErrorResponse(res,err) {
     return res.status(500).json({ message: 'Internal Server Error', error: err});
 }
 
-function getBadRequestError(res) {
-    return res.status(400).json({ message: 'Bad Request'});
+function getBadRequestErrorResponse(res,message) {
+    return res.status(400).json({ Message: message});
 }
 
 module.exports = {
     getNotFoundResponse,
-    getInternalServerError,
-    getBadRequestError
+    getInternalServerErrorResponse,
+    getBadRequestErrorResponse
 }
