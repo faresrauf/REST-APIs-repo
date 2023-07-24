@@ -1,0 +1,19 @@
+{
+  "name": "rest-apis-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "joi": "^17.9.2",
+    "joi-password": "^4.1.1",
+    "jsonwebtoken": "^9.0.1",
+    "morgan": "^1.10.0"
+  }
+}
