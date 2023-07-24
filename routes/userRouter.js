@@ -3,8 +3,8 @@ const router = express.Router();
 const { API_BASE_URL } = require('../links');
 const errorHandler = require('../errorHandler');
 const { fetchAPIGet, fetchAPIPost, fetchAPIDelete, fetchAPIPut } = require('../fetchAPI');
-const { paginationSchema, idSchema, userSchema, updateSchema } = require('../usersValidation.js')
-
+const { paginationSchema, idSchema, userSchema, updateSchema } = require('../Validations/usersValidation.js')
+const isAdmin = require('../Middleware/authorizationHandler');
 
 router.get('/', async (req, res) => {
     const pageNumber = req.query.page;
@@ -56,7 +56,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', isAdmin, async (req, res) => {
     const User = {
         name: req.body.name,
         job: req.body.job,
@@ -84,7 +84,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAdmin, async (req, res) => {
     const User = {
         name: req.body.name,
         job: req.body.job,

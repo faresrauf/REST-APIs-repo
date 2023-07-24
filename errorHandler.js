@@ -11,8 +11,18 @@ function getBadRequestErrorResponse(res,message) {
     return res.status(400).json({ Message: message});
 }
 
+function getUnauthenticatedErrorResponse(res,message) {
+    return res.status(401).json({ Message: message});
+}
+
+function getUnauthorizedErrorResponse(res,message) {
+    return res.status(403).json({ Message: message});
+}
+
 module.exports = {
     getNotFoundResponse,
     getInternalServerErrorResponse,
-    getBadRequestErrorResponse
+    getBadRequestErrorResponse,
+    getUnauthenticatedErrorResponse,
+    getUnauthorizedErrorResponse
 }
